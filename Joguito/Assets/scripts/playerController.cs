@@ -107,4 +107,4 @@ public class playerController : MonoBehaviour
             facingRight = true;
         }
     }
-}
+}  //testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee

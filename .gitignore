@@ -61,4 +61,4 @@ crashlytics-build.properties
 ./Library/PackageCache
 
 manifest.json
-
+./Temp
