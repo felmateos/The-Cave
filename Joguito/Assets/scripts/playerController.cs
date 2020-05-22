@@ -22,17 +22,17 @@ public class playerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             rb.velocity = new Vector2(-5, rb.velocity.y);
             FlipRight();
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             rb.velocity = new Vector2(5, rb.velocity.y);
             FlipLeft();
         }
-        if (Input.GetKeyDown(KeyCode.W) && isGrounded == true)
+        if (Input.GetKeyDown(KeyCode.W) && isGrounded == true || Input.GetKey(KeyCode.UpArrow) && isGrounded==true)
         {
             Jump();
         }
