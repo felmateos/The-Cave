@@ -17,7 +17,14 @@ public class chest : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Impact"))
+        if (collision.gameObject.CompareTag("FireBall"))
+        {
+            Destroy(gameObject);
+        }
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("FireBall"))
         {
             Destroy(gameObject);
         }

@@ -11,6 +11,8 @@ TagManager:
   - Spike
   - Chest
   - FireBall
+  - Boss
+  - Bullet
   layers:
   - Default
   - TransparentFX
