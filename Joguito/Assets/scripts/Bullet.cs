@@ -18,11 +18,12 @@ public class Bullet : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		rbb.velocity = transform.right * speed;
-		target = GameObject.FindObjectOfType<playerController>();
-		moveDirection = (target.transform.position - transform.position).normalized * speed;
-		rbb.velocity = new Vector2(moveDirection.x, moveDirection.y);
-		Destroy(gameObject, 3f);
+
+			rbb.velocity = transform.right * speed;
+			target = GameObject.FindObjectOfType<playerController>();
+			moveDirection = (target.transform.position - transform.position).normalized * speed;
+			rbb.velocity = new Vector2(moveDirection.x, moveDirection.y);
+			Destroy(gameObject, 3f);
 	}
 	void OnBecameInvisible()
 	{
