@@ -5,7 +5,7 @@ using UnityEngine;
 public class fireball : MonoBehaviour
 {
 
-	public float speed = 7f;
+	public float speed = 12f;
 	public int damage = 40;
 	public Rigidbody2D rbb;
 	public GameObject impactEffect;

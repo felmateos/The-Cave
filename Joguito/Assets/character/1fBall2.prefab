@@ -45,10 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 1
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.75
+  m_FalloffIntensity: 0.78
   m_Color: {r: 1, g: 0.8666878, b: 0, a: 1}
   m_Intensity: 1
-  m_LightVolumeOpacity: 0.15
+  m_LightVolumeOpacity: 0.11
   m_ApplyToSortingLayers: 00000000b54a3ef4610557c0d58ad8a2
   m_LightCookieSprite: {fileID: 21300000, guid: 681f8e96d7b61c64c9e142bfa9792d7d,
     type: 3}
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fb580b8143cb884ca33c1c55a0dd198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 12
   damage: 40
   rbb: {fileID: 6625040169295197504}
   impactEffect: {fileID: 1979696581043077022, guid: 807af5ab5368be84f9a5213350ce2fcc,
