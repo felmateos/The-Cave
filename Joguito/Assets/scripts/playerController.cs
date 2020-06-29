@@ -25,19 +25,27 @@ public class playerController : MonoBehaviour
     void Update()
     {
         anim.speed = 0.5f;
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+       
+       if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))            //move pra esquerda
         {
             rb.velocity = new Vector2(-5, rb.velocity.y);
             FlipRight();
         }
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))          //move pra direita
         {
             rb.velocity = new Vector2(5, rb.velocity.y);
             FlipLeft();
         }
-        if (Input.GetKeyDown(KeyCode.W) && isGrounded == true || Input.GetKey(KeyCode.UpArrow) && isGrounded==true)
+        
+        if (Input.GetKeyDown(KeyCode.W) && isGrounded == true || Input.GetKey(KeyCode.UpArrow) && isGrounded==true)      //move pra cima (pula)
         {
             Jump();
+        }
+       
+       if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) && isGrounded == false)
+        {
+            rb.velocity = new Vector2(rb.velocity.x,-6f);
         }
     }
 
@@ -136,4 +144,4 @@ public class playerController : MonoBehaviour
             facingRight = true;
         }
     }
-}  //testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+}  
