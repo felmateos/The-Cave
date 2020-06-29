@@ -63,7 +63,7 @@ public class playerController : MonoBehaviour
 
     void Jump()                         
     {
-        rb.AddForce(new Vector2(0,forcaPulo));      
+        rb.AddForce(new Vector2(rb.velocity.x,forcaPulo));      
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -88,13 +88,13 @@ public class playerController : MonoBehaviour
             }
             switch (lifes)
             {
-                case 2:
+                case 0:
                     Destroy(l1);
                     break;
                 case 1:
                     Destroy(l2);
                     break;
-                case 0:
+                case 2:
                     Destroy(l3);
                     break;
                 default:
