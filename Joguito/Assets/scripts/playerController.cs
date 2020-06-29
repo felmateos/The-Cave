@@ -16,6 +16,7 @@ public class playerController : MonoBehaviour
     private Animator anim;
     public float forcaPulo;
     public float velocidadeMaxima;
+    public GameObject player;
     
     
     
@@ -69,7 +70,7 @@ public class playerController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("Chest")      //quando bate em algo
-            || collision.gameObject.CompareTag("Spike"))
+            || collision.gameObject.CompareTag("Spike") || collision.gameObject.CompareTag("Plataforma") )
         {
             isGrounded = true;
         }
@@ -102,15 +103,19 @@ public class playerController : MonoBehaviour
                     break;
             }
         }
+        if (collision.gameObject.CompareTag("Plataforma"))
+           player.transform.parent = collision.gameObject.transform;
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("Chest")       //quando bate em algo
-            || collision.gameObject.CompareTag("Spike"))
+            || collision.gameObject.CompareTag("Spike") || collision.gameObject.CompareTag("Plataforma"))
         {
             isGrounded = false;
         }
+        if (collision.gameObject.CompareTag("Plataforma"))
+             player.transform.parent = null;
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -138,7 +143,17 @@ public class playerController : MonoBehaviour
                     break;
             }
         }
+        if (collision.gameObject.CompareTag("Plataforma") && isGrounded )
+        {
+         isGrounded = false;  
+         player.transform.parent = collision.gameObject.transform;
+		}
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        player.transform.parent = null;
+	}
 
     void FlipRight()
     {
