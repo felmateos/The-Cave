@@ -14,7 +14,11 @@ public class playerController : MonoBehaviour
     public GameObject l2;
     public GameObject l3;
     private Animator anim;
-    // Start is called before the first frame update
+    public float forcaPulo;
+    public float velocidadeMaxima;
+    
+    
+    
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -26,32 +30,45 @@ public class playerController : MonoBehaviour
     {
         anim.speed = 0.5f;
        
-       if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))            //move pra esquerda
-        {
-            rb.velocity = new Vector2(-5, rb.velocity.y);
-            FlipRight();
-        }
-        
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))          //move pra direita
-        {
-            rb.velocity = new Vector2(5, rb.velocity.y);
-            FlipLeft();
-        }
-        
-        if (Input.GetKeyDown(KeyCode.W) && isGrounded == true || Input.GetKey(KeyCode.UpArrow) && isGrounded==true)      //move pra cima (pula)
+       //Movimentação lateral do personagem
+
+       Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
+       
+       float movimento = Input.GetAxis("Horizontal");          
+
+       rigidbody.velocity = new Vector2(movimento*velocidadeMaxima,rigidbody.velocity.y);
+
+       if(movimento > 0)
+       {
+           FlipLeft();
+	   } else if (movimento < 0)
+       {
+          FlipRight();
+	   }
+      
+        //Movimentação vertical do personagem
+
+        if (Input.GetKeyDown(KeyCode.W) && isGrounded == true  || Input.GetKey(KeyCode.UpArrow) && isGrounded == true)      //move pra cima (pula)
         {
             Jump();
         }
        
-       if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) && isGrounded == false)
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) && isGrounded == false)         //move pra baixo quando estiver no ar
         {
-            rb.velocity = new Vector2(rb.velocity.x,-6f);
+            rb.velocity = new Vector2(rb.velocity.x,-8f);
         }
+    }
+    
+    // Pulo
+
+    void Jump()                         
+    {
+        rb.AddForce(new Vector2(0,forcaPulo));      
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("Chest")
+        if (collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("Chest")      //quando bate em algo
             || collision.gameObject.CompareTag("Spike"))
         {
             isGrounded = true;
@@ -89,7 +106,7 @@ public class playerController : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("Chest")
+        if (collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("Chest")       //quando bate em algo
             || collision.gameObject.CompareTag("Spike"))
         {
             isGrounded = false;
@@ -121,11 +138,6 @@ public class playerController : MonoBehaviour
                     break;
             }
         }
-    }
-
-    void Jump()
-    {
-        rb.velocity = new Vector2(rb.velocity.x, 10f);
     }
 
     void FlipRight()
