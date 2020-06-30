@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 41
+  controlID: 22
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 46
+  controlID: 72
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 47
+  controlID: 73
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -268,8 +268,8 @@ MonoBehaviour:
     y: 0
     width: 519
     height: 1019
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 27018
+  m_LastSelectedObjectID: -20198
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -337,7 +337,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: ea5cfffff691ffff2c92ffffcc92ffffe2a6ffff46aaffffd6aaffff66abffff26afffff50680000a4680000ae680000c46800005a690000046a0000
+      m_ExpandedIDs: b6f9feffaefdfeff3602ffff8802ffffce0bffffb01fffff6420ffff3694ffff40fbffff9e410000ec410000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -397,9 +397,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 13.089466, y: -4.2550716, z: 140.6875}
+    m_Target: {x: 14.13549, y: -1.3444247, z: 0}
     speed: 2
-    m_Value: {x: 13.089466, y: -4.2550716, z: 140.6875}
+    m_Value: {x: 14.13549, y: -1.3444247, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 1
@@ -449,9 +449,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 47.054672
+    m_Target: 80.75248
     speed: 2
-    m_Value: 45.028393
+    m_Value: 80.75248
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -731,20 +731,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/scripts
+    - Assets/Scenes
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/scripts
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\JogoLixo\Joguito
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: a0570000
-    m_LastClickedID: 22432
-    m_ExpandedIDs: 00000000fc550000fe55000000560000025600008057000000ca9a3b
+    m_SelectedIDs: ba480000
+    m_LastClickedID: 18618
+    m_ExpandedIDs: 00000000184700001a4700001e470000c248000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -772,7 +772,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000fc550000fe5500000056000002560000
+    m_ExpandedIDs: 00000000184700001a4700001c4700001e47000020470000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -800,7 +800,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c62300005e3b0000d8770000027f000000000000c0420000cc450000984e0000
+    m_ExpandedInstanceIDs: c62300005e3b0000d8770000027f000000000000c0420000cc450000984e000022460000dc5d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -921,7 +921,7 @@ MonoBehaviour:
     m_CachedPref: 170
     m_ControlHash: 1964396721
     m_PrefName: Preview_TilemapBrushInspector
-  m_Palette: {fileID: 1783134010819381406, guid: 3a1ec71329b6b0e44a9d0ee6195c8685,
+  m_Palette: {fileID: 6981980693441324869, guid: 55fcef29c96d20c40995b706ea944f68,
     type: 3}
 --- !u!114 &22
 MonoBehaviour:

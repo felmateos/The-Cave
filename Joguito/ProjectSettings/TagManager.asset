@@ -14,6 +14,8 @@ TagManager:
   - Boss
   - Bullet
   - Plataforma
+  - Checkpoint
+  - Kill
   layers:
   - Default
   - TransparentFX
