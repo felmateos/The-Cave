@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour
 {
+
     public Rigidbody2D rb;
     public bool facingRight = true;
     public bool isGrounded = true;
@@ -13,6 +14,7 @@ public class playerController : MonoBehaviour
     public GameObject l1;
     public GameObject l2;
     public GameObject l3;
+    public GameObject IBUTTON;
     private Animator anim;
     public float forcaPulo;
     public float velocidadeMaxima;
@@ -23,6 +25,7 @@ public class playerController : MonoBehaviour
     
     void Start()
     {
+        IBUTTON.GetComponent<Renderer>().enabled = false;
         anim = gameObject.GetComponent<Animator>();
         print("eae jogo bosta");
         rb = GetComponent<Rigidbody2D>();
@@ -35,8 +38,12 @@ public class playerController : MonoBehaviour
        //Movimentação lateral do personagem
 
        Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
-       
-       float movimento = Input.GetAxis("Horizontal");          
+        float movimento =0;
+        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        {
+             movimento = Input.GetAxis("Horizontal");
+        }
+               
 
        rigidbody.velocity = new Vector2(movimento*velocidadeMaxima,rigidbody.velocity.y);
 
@@ -66,8 +73,16 @@ public class playerController : MonoBehaviour
 		}
     }
     
-    // Pulo
+    
+    public void ToogleVisibility(){
 
+        Renderer rend = IBUTTON.GetComponent<Renderer>();
+        if (rend.enabled == false)
+            rend.enabled = true;
+        else
+            rend.enabled = false;
+    }
+    // Pulo
     void Jump()                         
     {
         rb.AddForce(new Vector2(rb.velocity.x,forcaPulo));      
@@ -88,6 +103,11 @@ public class playerController : MonoBehaviour
             coinCount++;
             print("qtd de coins: " + coinCount);
         }
+        if (collision.gameObject.CompareTag("Chest"))
+        {
+            ToogleVisibility();
+        }
+
         if (collision.gameObject.CompareTag("Spike"))
         {
             lifes--;

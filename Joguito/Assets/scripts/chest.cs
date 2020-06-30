@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class chest : MonoBehaviour
 {
+
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -21,12 +23,21 @@ public class chest : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            print("bateu");
+        }
+       
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("FireBall"))
         {
             Destroy(gameObject);
+        }
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            print("bateu");
         }
     }
 }
