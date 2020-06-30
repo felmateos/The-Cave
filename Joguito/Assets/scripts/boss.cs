@@ -6,7 +6,7 @@ public class boss : MonoBehaviour
 {
 
 	[SerializeField]
-	GameObject bullet;
+	public GameObject bullet;
 
 	float dirX, moveSpeed = 3f;
 	bool moveUp = true;
