@@ -7,8 +7,10 @@ public class playerController : MonoBehaviour
 {
 
     public Rigidbody2D rb;
+    
     public bool facingRight = true;
     public bool isGrounded = true;
+    public bool inRange = false;
     public int coinCount = 0;
     public int lifes = 3;
     public GameObject l1;
@@ -35,55 +37,48 @@ public class playerController : MonoBehaviour
     void Update()
     {
         anim.speed = 0.5f;
-       
-       //Movimentação lateral do personagem
 
-       Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
-        float movimento =0;
-        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        //Movimentação lateral do personagem
+
+        Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
+        float movimento = 0;
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
-             movimento = Input.GetAxis("Horizontal");
+            movimento = Input.GetAxis("Horizontal");
         }
-               
 
-       rigidbody.velocity = new Vector2(movimento*velocidadeMaxima,rigidbody.velocity.y);
 
-       if(movimento > 0)
-       {
-           FlipLeft();
-	   } else if (movimento < 0)
-       {
-          FlipRight();
-	   }
-      
+        rigidbody.velocity = new Vector2(movimento * velocidadeMaxima, rigidbody.velocity.y);
+
+        if (movimento > 0)
+        {
+            FlipLeft();
+        }
+        else if (movimento < 0)
+        {
+            FlipRight();
+        }
+
         //Movimentação vertical do personagem
 
-        if (Input.GetKeyDown(KeyCode.W) && isGrounded == true  && isGrounded == true)      //move pra cima (pula)
+        if (Input.GetKeyDown(KeyCode.W) && isGrounded == true && isGrounded == true)      //move pra cima (pula)
         {
             Jump();
         }
-       
+
         if (Input.GetKey(KeyCode.S) && isGrounded == false)         //move pra baixo quando estiver no ar
         {
-            rb.velocity = new Vector2(rb.velocity.x,-10f);
+            rb.velocity = new Vector2(rb.velocity.x, -10f);
         }
 
         if (Input.GetKeyDown(KeyCode.C))
         {
-            transform.position = LastCheckpoint.transform.position;  
-		}
+            transform.position = LastCheckpoint.transform.position;
+        }
+
+       
     }
     
-    /*
-    public void ToogleVisibility(){
-
-       Renderer rend = IBUTTON.GetComponent<Renderer>();
-       if (rend.enabled == false)
-            rend.enabled = true;
-       else
-            rend.enabled = false;
-       }
-       */
 
     // Pulo
     void Jump()                         
@@ -149,20 +144,9 @@ public class playerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        //botão do baú
 
-        if (collision.gameObject.CompareTag("Chest"))
-        {
-        IBUTTON.GetComponent<Renderer>().enabled = true;
-         //IBUTTON.GetComponent<SpriteRenderer>();
-         
-           // rend.enabled = true;
-        
-          
-        }
-        
-        //checkpoint
+
+            //checkpoint
 
         if (collision.gameObject.CompareTag("Checkpoint"))         
         {
@@ -212,15 +196,7 @@ public class playerController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        
-        if (collision.gameObject.CompareTag("Chest"))
-        {
-          
-            IBUTTON.GetComponent<Renderer>().enabled = false;
-         
-            
-            //rend.enabled = false; 
-        }
+      
         
        // Player.transform.parent = null;       //conferir se isso nao caga nada
        
@@ -243,4 +219,5 @@ public class playerController : MonoBehaviour
             facingRight = true;
         }
     }
+  
 }  
