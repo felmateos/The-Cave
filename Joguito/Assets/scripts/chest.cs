@@ -18,7 +18,9 @@ public class chest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        RectTransform dial = GameObject.FindGameObjectWithTag("Dialog").GetComponent<RectTransform>();
         playerController pc = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
+        
         if (Input.GetKeyDown(KeyCode.E) && pc.inRange == true)
         {
             dialg = bau.GetComponent<chest>().dialg;

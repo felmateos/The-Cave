@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
 
 	public float speed = 7f;
 	public int damage = 40;
-	public int hitCount;
+	public int hitCount = 0;
 	public Rigidbody2D rbb;
 	public GameObject platform;
 	public GameObject BulletPrefab;
@@ -41,7 +41,7 @@ public class Bullet : MonoBehaviour
 		{
 			hitCount++;
 			Instantiate(impactEffect, transform.position, transform.rotation);
-			Debug.Log("Hit " + hitCount);
+			// Debug.Log("Hit " + hitCount);
 			Destroy(gameObject);
 		}
 	}

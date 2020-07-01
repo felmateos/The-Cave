@@ -16,15 +16,17 @@ public class playerController : MonoBehaviour
     public GameObject l1;
     public GameObject l2;
     public GameObject l3;
+    public GameObject bullet;
     public GameObject IBUTTON;
     private Animator anim;
     public float forcaPulo;
     public float velocidadeMaxima;
     public GameObject Player;
     public GameObject LastCheckpoint;
-    
-    
-    
+    public Animator animator;
+    public int hitCount = 0;
+
+
     void Start()
     {
               
@@ -38,14 +40,18 @@ public class playerController : MonoBehaviour
     {
         anim.speed = 0.5f;
 
+
         //Movimentação lateral do personagem
 
         Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
         float movimento = 0;
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+   
+
+        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             movimento = Input.GetAxis("Horizontal");
         }
+
 
 
         rigidbody.velocity = new Vector2(movimento * velocidadeMaxima, rigidbody.velocity.y);
@@ -58,6 +64,19 @@ public class playerController : MonoBehaviour
         {
             FlipRight();
         }
+
+
+       rigidbody.velocity = new Vector2(movimento*velocidadeMaxima, rigidbody.velocity.y);
+
+       if(movimento > 0)
+       {
+           FlipLeft();
+        } 
+        else if (movimento < 0)
+        {
+          FlipRight();
+        }
+        animator.SetFloat("Speed", Mathf.Abs(rigidbody.velocity.x));
 
         //Movimentação vertical do personagem
 
@@ -103,14 +122,14 @@ public class playerController : MonoBehaviour
         }
        
 
-        if (collision.gameObject.CompareTag("Spike"))
+        if (collision.gameObject.CompareTag("Bullet") || collision.gameObject.CompareTag("Impact"))
         {
             lifes--;
             print("-1 de vida, vidas restantes: " + lifes);
-            //if (lifes == 0)
-            // {
-            //    Destroy(gameObject);
-            //}
+            if (lifes == 0)
+             {
+                Destroy(gameObject);
+            }
             switch (lifes)
             {
                 case 0:
@@ -163,7 +182,7 @@ public class playerController : MonoBehaviour
         
         //controle de vidas (no momento está sendo ignorado)
 
-        if (collision.gameObject.CompareTag("Impact"))
+        if (collision.gameObject.CompareTag("Impact") || collision.gameObject.CompareTag("Bullet"))
         {
             lifes--;
             print("-1 de vida, vidas restantes: " + lifes);
@@ -174,18 +193,21 @@ public class playerController : MonoBehaviour
             switch (lifes)
             {
                 case 2:
-                    Destroy(l1);
+                    Destroy(l3);
                     break;
                 case 1:
                     Destroy(l2);
                     break;
                 case 0:
-                    Destroy(l3);
+                    Destroy(l1);
                     break;
                 default:
                     print("");
                     break;
             }
+            
+        hitCount++;
+        print("Hit " + hitCount);
         }
         if (collision.gameObject.CompareTag("Plataforma") && isGrounded )
         {
@@ -201,7 +223,6 @@ public class playerController : MonoBehaviour
        // Player.transform.parent = null;       //conferir se isso nao caga nada
        
 	}
-
 
     void FlipRight()
     {
