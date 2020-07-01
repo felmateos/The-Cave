@@ -16,6 +16,7 @@ TagManager:
   - Plataforma
   - Checkpoint
   - Kill
+  - Dialog
   layers:
   - Default
   - TransparentFX

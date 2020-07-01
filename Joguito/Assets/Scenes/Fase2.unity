@@ -3232,13 +3232,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 453762270}
-    characterCount: 51
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 9
-    wordCount: 9
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 5
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -6593,11 +6593,14 @@ MonoBehaviour:
   l1: {fileID: 1232498532}
   l2: {fileID: 2037366589}
   l3: {fileID: 1151771448}
+  bullet: {fileID: 0}
   IBUTTON: {fileID: 1574301012}
   forcaPulo: 720
   velocidadeMaxima: 7
   Player: {fileID: 0}
   LastCheckpoint: {fileID: 0}
+  animator: {fileID: 849856195}
+  hitCount: 0
 --- !u!95 &849856195
 Animator:
   serializedVersion: 3
@@ -11979,12 +11982,12 @@ PrefabInstance:
     - target: {fileID: 8758782475987193236, guid: c02b7c8f4cc2d4749a1fa64dab7ab389,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 960
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8758782475987193236, guid: c02b7c8f4cc2d4749a1fa64dab7ab389,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -450
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 8758782475987193236, guid: c02b7c8f4cc2d4749a1fa64dab7ab389,
         type: 3}
@@ -11999,22 +12002,22 @@ PrefabInstance:
     - target: {fileID: 8758782475987193236, guid: c02b7c8f4cc2d4749a1fa64dab7ab389,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8758782475987193236, guid: c02b7c8f4cc2d4749a1fa64dab7ab389,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8758782475987193236, guid: c02b7c8f4cc2d4749a1fa64dab7ab389,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8758782475987193236, guid: c02b7c8f4cc2d4749a1fa64dab7ab389,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8758782475987193236, guid: c02b7c8f4cc2d4749a1fa64dab7ab389,
         type: 3}
@@ -14444,7 +14447,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1936823265
 MonoBehaviour:
@@ -15620,7 +15623,12 @@ PrefabInstance:
     - target: {fileID: 8862552086552496855, guid: 78a576378b9105a45895347771cbed65,
         type: 3}
       propertyPath: dialg
-      value: 123
+      value: "V\xE1 ao altar na frente para a sequ\xEAncia iniciar"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8862552086552496855, guid: 78a576378b9105a45895347771cbed65,
+        type: 3}
+      propertyPath: bau
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8862552086552496859, guid: 78a576378b9105a45895347771cbed65,
         type: 3}
@@ -16086,6 +16094,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Chest
+      objectReference: {fileID: 0}
+    - target: {fileID: 8862552086552496855, guid: 78a576378b9105a45895347771cbed65,
+        type: 3}
+      propertyPath: dialg
+      value: "Preso agora est\xE1s, para sair a sequ\xEAncia dever\xE1s acertar"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8862552086552496855, guid: 78a576378b9105a45895347771cbed65,
+        type: 3}
+      propertyPath: bau
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8862552086552496859, guid: 78a576378b9105a45895347771cbed65,
         type: 3}
