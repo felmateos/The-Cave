@@ -20,6 +20,8 @@ public class GameManagerController : MonoBehaviour
     {
       if (Input.GetKeyDown(KeyCode.Escape))
         Pause();
+        GetComponent<AudioSource>().Play();
+
     }
 
     public void Pause()

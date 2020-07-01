@@ -16,7 +16,9 @@ public class OpenControles : MonoBehaviour
     
     void Update()
     {
-     
+     if (controles)
+        if (Input.GetKeyDown(KeyCode.Escape))
+           OControles(); 
     }
 
     public void OControles()

@@ -23,10 +23,12 @@ public class chest : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            print("bateu");
-        }
+        
+        //if (collision.gameObject.CompareTag("Player"))
+        //{
+        //    print("bateu");
+       // }
+        
        
     }
     void OnTriggerEnter2D(Collider2D collision)
@@ -35,9 +37,11 @@ public class chest : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
         if (collision.gameObject.CompareTag("Player"))
         {
             print("bateu");
         }
+        
     }
 }

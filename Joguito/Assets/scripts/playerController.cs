@@ -18,17 +18,18 @@ public class playerController : MonoBehaviour
     private Animator anim;
     public float forcaPulo;
     public float velocidadeMaxima;
-    public GameObject player;
+    public GameObject Player;
     public GameObject LastCheckpoint;
     
     
     
     void Start()
     {
-        IBUTTON.GetComponent<Renderer>().enabled = false;
+              
         anim = gameObject.GetComponent<Animator>();
         print("eae jogo bosta");
         rb = GetComponent<Rigidbody2D>();
+        //IBUTTON.GetComponent<Renderer>().enabled = false; 
     }
 
     void Update()
@@ -64,7 +65,7 @@ public class playerController : MonoBehaviour
        
         if (Input.GetKey(KeyCode.S) && isGrounded == false)         //move pra baixo quando estiver no ar
         {
-            rb.velocity = new Vector2(rb.velocity.x,-8f);
+            rb.velocity = new Vector2(rb.velocity.x,-10f);
         }
 
         if (Input.GetKeyDown(KeyCode.C))
@@ -73,15 +74,17 @@ public class playerController : MonoBehaviour
 		}
     }
     
-    
+    /*
     public void ToogleVisibility(){
 
-        Renderer rend = IBUTTON.GetComponent<Renderer>();
-        if (rend.enabled == false)
+       Renderer rend = IBUTTON.GetComponent<Renderer>();
+       if (rend.enabled == false)
             rend.enabled = true;
-        else
+       else
             rend.enabled = false;
-    }
+       }
+       */
+
     // Pulo
     void Jump()                         
     {
@@ -103,10 +106,7 @@ public class playerController : MonoBehaviour
             coinCount++;
             print("qtd de coins: " + coinCount);
         }
-        if (collision.gameObject.CompareTag("Chest"))
-        {
-            ToogleVisibility();
-        }
+       
 
         if (collision.gameObject.CompareTag("Spike"))
         {
@@ -133,7 +133,7 @@ public class playerController : MonoBehaviour
             }
         }
         if (collision.gameObject.CompareTag("Plataforma"))
-           player.transform.parent = collision.gameObject.transform;
+           Player.transform.parent = collision.gameObject.transform;
     }
 
     void OnCollisionExit2D(Collision2D collision)
@@ -144,12 +144,25 @@ public class playerController : MonoBehaviour
             isGrounded = false;
         }
         if (collision.gameObject.CompareTag("Plataforma"))
-             player.transform.parent = null;
+             Player.transform.parent = null;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-         //checkpoint
+        
+        //botão do baú
+
+        if (collision.gameObject.CompareTag("Chest"))
+        {
+        IBUTTON.GetComponent<Renderer>().enabled = true;
+         //IBUTTON.GetComponent<SpriteRenderer>();
+         
+           // rend.enabled = true;
+        
+          
+        }
+        
+        //checkpoint
 
         if (collision.gameObject.CompareTag("Checkpoint"))         
         {
@@ -193,14 +206,26 @@ public class playerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Plataforma") && isGrounded )
         {
          isGrounded = false;  
-         player.transform.parent = collision.gameObject.transform;
+         Player.transform.parent = collision.gameObject.transform;
 		}
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        player.transform.parent = null;
+        
+        if (collision.gameObject.CompareTag("Chest"))
+        {
+          
+            IBUTTON.GetComponent<Renderer>().enabled = false;
+         
+            
+            //rend.enabled = false; 
+        }
+        
+       // Player.transform.parent = null;       //conferir se isso nao caga nada
+       
 	}
+
 
     void FlipRight()
     {
