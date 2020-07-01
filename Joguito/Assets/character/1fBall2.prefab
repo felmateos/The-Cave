@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 4244974180390795856}
   - component: {fileID: 6625040169295197504}
   - component: {fileID: 3749425536476067366}
+  - component: {fileID: 3811188121325394814}
   m_Layer: 0
   m_Name: 1fBall2
   m_TagString: FireBall
@@ -137,7 +138,7 @@ Transform:
   m_GameObject: {fileID: 3130289668242884044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.59, y: 2.08, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 5270017651661833103}
   m_Father: {fileID: 0}
@@ -182,7 +183,7 @@ SpriteRenderer:
   m_SortingLayerID: -1068038815
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 03625e6f1380c344c9795cc88c89d1df, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2580697be602a0a41b625cba85d5db5a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -203,7 +204,7 @@ Animator:
   m_GameObject: {fileID: 3130289668242884044}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 66a86f36872368b409da9ed5e90308be, type: 2}
+  m_Controller: {fileID: 9100000, guid: be4183a37906655448b19031572b31c2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -257,12 +258,40 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3130289668242884044}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.2601884, y: -0.0014947057}
+  serializedVersion: 2
+  m_Radius: 0.1547156
+--- !u!68 &3811188121325394814
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3130289668242884044}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.097928405, y: -0.044668674}
-  serializedVersion: 2
-  m_Radius: 0.35799634
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.2680416, y: -0.15368944}
+  - {x: 0.3272121, y: -0.15227515}
+  - {x: 0.325835, y: -0.10340685}
+  - {x: 0.36605382, y: -0.10277867}
+  - {x: 0.36587334, y: -0.06446344}
+  - {x: 0.41083622, y: -0.06448877}
+  - {x: 0.40768576, y: 0.06504738}
+  - {x: 0.36401105, y: 0.06945515}
+  - {x: 0.36483955, y: 0.10822308}
+  - {x: 0.32425952, y: 0.11077094}
+  - {x: 0.31765962, y: 0.14992094}
+  - {x: 0.27308273, y: 0.14759147}
