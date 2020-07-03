@@ -163,9 +163,15 @@ public class playerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("Altar"))
+        {
+            Altar alt = GameObject.FindGameObjectWithTag("Altar").GetComponent<Altar>();
+            alt.certo = true;
+            
+        }
 
 
-            //checkpoint
+        //checkpoint
 
         if (collision.gameObject.CompareTag("Checkpoint"))         
         {
@@ -218,11 +224,16 @@ public class playerController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-      
-        
-       // Player.transform.parent = null;       //conferir se isso nao caga nada
-       
-	}
+        if (collision.gameObject.CompareTag("Altar"))
+        {
+            Altar alt = GameObject.FindGameObjectWithTag("Altar").GetComponent<Altar>();
+            alt.certo = false;
+
+        }
+
+        // Player.transform.parent = null;       //conferir se isso nao caga nada
+
+    }
 
     void FlipRight()
     {

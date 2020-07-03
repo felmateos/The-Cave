@@ -21,8 +21,9 @@ public class chest : MonoBehaviour
         
         playerController pc = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
         
-        if (Input.GetKeyDown(KeyCode.E) && pc.inRange == true)
+        if (Input.GetKeyDown(KeyCode.E) && pc.inRange == true && bau.CompareTag("Chest"))
         {
+            print("Bau to co bau ");
             dialg = bau.GetComponent<chest>().dialg;
             Interacion();
         }

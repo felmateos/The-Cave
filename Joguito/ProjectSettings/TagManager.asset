@@ -17,6 +17,7 @@ TagManager:
   - Checkpoint
   - Kill
   - Dialog
+  - Altar
   layers:
   - Default
   - TransparentFX
