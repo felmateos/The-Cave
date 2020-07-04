@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -603,7 +603,7 @@ GameObject:
   m_Component:
   - component: {fileID: 50206835}
   - component: {fileID: 50206836}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GC1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1450,7 +1450,7 @@ GameObject:
   - component: {fileID: 164335337}
   - component: {fileID: 164335339}
   - component: {fileID: 164335338}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plataforma
   m_TagString: Plataforma
   m_Icon: {fileID: 0}
@@ -2636,7 +2636,7 @@ GameObject:
   - component: {fileID: 269774587}
   - component: {fileID: 269774588}
   - component: {fileID: 269774589}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plataforma
   m_TagString: Plataforma
   m_Icon: {fileID: 0}
@@ -3022,7 +3022,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 313049974}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pos2
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
@@ -4783,7 +4783,7 @@ GameObject:
   - component: {fileID: 446827084}
   - component: {fileID: 446827086}
   - component: {fileID: 446827085}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plataforma
   m_TagString: Plataforma
   m_Icon: {fileID: 0}
@@ -5365,7 +5365,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 495671768}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pos2
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
@@ -5857,6 +5857,7 @@ GameObject:
   m_Component:
   - component: {fileID: 529038849}
   - component: {fileID: 529038848}
+  - component: {fileID: 529038850}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5892,6 +5893,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &529038850
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529038847}
+  m_Enabled: 0
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 610a44e7115da8f48b1f53656f44db04, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &542803561
 GameObject:
   m_ObjectHideFlags: 0
@@ -6041,7 +6138,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 560005167}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pos1
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
@@ -6072,7 +6169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 563541579}
   - component: {fileID: 563541580}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GC1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6360,7 +6457,7 @@ GameObject:
   m_Component:
   - component: {fileID: 574727512}
   - component: {fileID: 574727513}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GC1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6441,7 +6538,7 @@ GameObject:
   m_Component:
   - component: {fileID: 575459182}
   - component: {fileID: 575459183}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GC1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6752,7 +6849,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 584950973}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0eb196adf36886a42a84d943d9df181c, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -7229,15 +7326,6 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
-  - first: {x: 79, y: -27, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 1
-      m_TileSpriteIndex: 1
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      m_AllTileFlags: 1073741825
   - first: {x: 36, y: -26, z: 0}
     second:
       serializedVersion: 2
@@ -7250,8 +7338,8 @@ Tilemap:
   - first: {x: 79, y: -26, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 1
-      m_TileSpriteIndex: 1
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -7313,8 +7401,8 @@ Tilemap:
   - first: {x: 82, y: -24, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 1
-      m_TileSpriteIndex: 1
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -7933,17 +8021,17 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 71
+  - m_RefCount: 73
     m_Data: {fileID: 11400000, guid: bdf2c2c5081ba9b4e9393a1f8c75eb98, type: 2}
-  - m_RefCount: 53
+  - m_RefCount: 50
     m_Data: {fileID: 11400000, guid: 920efe8628b9ba6448fe8057361be3b2, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 71
+  - m_RefCount: 73
     m_Data: {fileID: 21300000, guid: dffbb9c7436b2e0499368892d418fcda, type: 3}
-  - m_RefCount: 53
+  - m_RefCount: 50
     m_Data: {fileID: 21300000, guid: 51efd56220bfe0a439986878f63e0352, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 124
+  - m_RefCount: 123
     m_Data:
       e00: 1
       e01: 0
@@ -7962,7 +8050,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 124
+  - m_RefCount: 123
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -10378,7 +10466,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 956594265}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pos1
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
@@ -11481,7 +11569,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1087480670}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pos2
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
@@ -11934,9 +12022,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1130075479}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "Plataforma m\xF3vel"
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12896,7 +12984,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1214433650}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -12964,10 +13052,13 @@ MonoBehaviour:
   IBUTTON: {fileID: 32498908}
   forcaPulo: 720
   velocidadeMaxima: 7
-  Player: {fileID: 0}
+  Player: {fileID: 1214433650}
   LastCheckpoint: {fileID: 0}
   animator: {fileID: 1214433652}
   hitCount: 0
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!61 &1214433655
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12975,7 +13066,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1214433650}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -13073,7 +13164,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1214433650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -38.8, y: 2, z: 1}
+  m_LocalPosition: {x: -16.18, y: 2.4, z: 1}
   m_LocalScale: {x: 0.015, y: 0.015, z: 1}
   m_Children:
   - {fileID: 59113864}
@@ -13410,7 +13501,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1261284439}
   - component: {fileID: 1261284440}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GC1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15697,7 +15788,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1458510253}
   - component: {fileID: 1458510254}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GC1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16180,7 +16271,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1523679114}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pos1
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
@@ -18500,7 +18591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1874800382}
   - component: {fileID: 1874800383}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GC1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18707,7 +18798,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1889658560}
   - component: {fileID: 1889658561}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GC1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18787,7 +18878,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1893728781}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "Plataforma m\xF3vel (2)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20016,7 +20107,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 1980282017}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0eb196adf36886a42a84d943d9df181c, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -20505,7 +20596,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2014986519}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "Plataforma m\xF3vel (1)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20836,7 +20927,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2074291664}
   - component: {fileID: 2074291665}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GC1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

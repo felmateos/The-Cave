@@ -25,6 +25,8 @@ public class playerController : MonoBehaviour
     public GameObject LastCheckpoint;
     public Animator animator;
     public int hitCount = 0;
+    private BoxCollider2D boxCollider2d;
+    [SerializeField] public LayerMask groundLayerMask;
 
 
     void Start()
@@ -33,7 +35,8 @@ public class playerController : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         print("eae jogo bosta");
         rb = GetComponent<Rigidbody2D>();
-        //IBUTTON.GetComponent<Renderer>().enabled = false; 
+        //IBUTTON.GetComponent<Renderer>().enabled = false;
+         boxCollider2d = transform.GetComponent<BoxCollider2D>();
     }
 
     void Update()
@@ -80,7 +83,7 @@ public class playerController : MonoBehaviour
 
         //Movimentação vertical do personagem
 
-        if (Input.GetKeyDown(KeyCode.W) && isGrounded == true && isGrounded == true)      //move pra cima (pula)
+        if (Input.GetKeyDown(KeyCode.W) && IsGrounded())      //move pra cima (pula)
         {
             Jump();
         }
@@ -97,6 +100,27 @@ public class playerController : MonoBehaviour
 
        
     }
+
+    private void FixedUpdate()
+    {
+    
+	}
+    //MÉTODO DE ISGROUNDED COM RAYCAST
+     
+     bool IsGrounded()
+    {
+    float extraHeightText = 1f;
+    RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider2d.bounds.center, boxCollider2d.bounds.size, 0f, Vector2.down, extraHeightText, groundLayerMask);
+    Color rayColor;
+        if (raycastHit.collider != null) {    
+            rayColor = Color.green;
+	    } else {
+            rayColor = Color.red;
+	    }
+    Debug.DrawRay(boxCollider2d.bounds.center, Vector2.down * (boxCollider2d.bounds.extents.y + extraHeightText));
+    Debug.Log(raycastHit.collider);
+    return raycastHit.collider != null;
+	}
     
 
     // Pulo

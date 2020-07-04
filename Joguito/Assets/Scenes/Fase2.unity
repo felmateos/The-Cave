@@ -5012,7 +5012,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 584950973}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0eb196adf36886a42a84d943d9df181c, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -6997,7 +6997,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 849856189}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -7129,10 +7129,13 @@ MonoBehaviour:
   IBUTTON: {fileID: 1574301012}
   forcaPulo: 720
   velocidadeMaxima: 7
-  Player: {fileID: 0}
+  Player: {fileID: 849856189}
   LastCheckpoint: {fileID: 0}
   animator: {fileID: 849856195}
   hitCount: 0
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!95 &849856195
 Animator:
   serializedVersion: 3
@@ -7174,7 +7177,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 849856189}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -16064,7 +16067,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 1980282017}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0eb196adf36886a42a84d943d9df181c, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
