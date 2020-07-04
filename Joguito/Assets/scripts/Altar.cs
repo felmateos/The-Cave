@@ -8,6 +8,7 @@ public class Altar : MonoBehaviour
 
     GameObject altar;
     public bool certo = false;
+    public bool ativeseq = true;
     void Start()
     {
         altar = GameObject.Find("Altar");
@@ -19,8 +20,14 @@ public class Altar : MonoBehaviour
         playerController pc = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
         if (Input.GetKeyDown(KeyCode.E) && pc.inRange == true && certo)
         {
-            
-            print("Biribim, birimbau, teco leco no matagal");
+            Sequencia seq = GameObject.Find("Sequencia").GetComponent<Sequencia>();
+            if (ativeseq)
+            {
+                seq.ativo = true;
+                seq.startTime = Time.time;
+                ativeseq = false;
+            }
+
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
