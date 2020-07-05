@@ -148,27 +148,7 @@ public class playerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Bullet") || collision.gameObject.CompareTag("Impact"))
         {
-            lifes--;
-            print("-1 de vida, vidas restantes: " + lifes);
-            if (lifes == 0)
-             {
-                Destroy(gameObject);
-            }
-            switch (lifes)
-            {
-                case 0:
-                    Destroy(l1);
-                    break;
-                case 1:
-                    Destroy(l2);
-                    break;
-                case 2:
-                    Destroy(l3);
-                    break;
-                default:
-                    print("");
-                    break;
-            }
+            PerdeVida();
         }
         if (collision.gameObject.CompareTag("Plataforma"))
            Player.transform.parent = collision.gameObject.transform;
@@ -194,6 +174,13 @@ public class playerController : MonoBehaviour
             
         }
 
+        if (collision.gameObject.CompareTag("Botao"))
+        {
+            Botao bot = GameObject.FindGameObjectWithTag("Botao").GetComponent<Botao>();
+            bot.certo = true;
+            bot.botao = collision.gameObject;
+
+        }
 
         //checkpoint
 
@@ -255,6 +242,14 @@ public class playerController : MonoBehaviour
 
         }
 
+        if (collision.gameObject.CompareTag("Botao"))
+        {
+            Botao bot = GameObject.FindGameObjectWithTag("Botao").GetComponent<Botao>();
+            bot.certo = false;
+
+
+        }
+
         // Player.transform.parent = null;       //conferir se isso nao caga nada
 
     }
@@ -273,6 +268,29 @@ public class playerController : MonoBehaviour
         {
             transform.Rotate(0f, 180f, 0f);
             facingRight = true;
+        }
+    }
+    public void PerdeVida() {
+        lifes--;
+        
+        if (lifes == 0)
+        {
+            Destroy(gameObject);
+        }
+        switch (lifes)
+        {
+            case 0:
+                Destroy(l1);
+                break;
+            case 1:
+                Destroy(l2);
+                break;
+            case 2:
+                Destroy(l3);
+                break;
+            default:
+                print("");
+                break;
         }
     }
   

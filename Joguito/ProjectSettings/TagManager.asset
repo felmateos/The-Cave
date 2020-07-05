@@ -19,6 +19,7 @@ TagManager:
   - Dialog
   - Altar
   - Shield
+  - Botao
   layers:
   - Default
   - TransparentFX

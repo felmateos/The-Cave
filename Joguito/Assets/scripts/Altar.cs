@@ -18,7 +18,7 @@ public class Altar : MonoBehaviour
     void Update()
     {
         playerController pc = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
-        if (Input.GetKeyDown(KeyCode.E) && pc.inRange == true && certo)
+        if (Input.GetKeyDown(KeyCode.E) && pc.inRange == true && this.certo)
         {
             Sequencia seq = GameObject.Find("Sequencia").GetComponent<Sequencia>();
             if (ativeseq)

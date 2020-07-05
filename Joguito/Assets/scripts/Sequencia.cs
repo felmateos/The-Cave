@@ -16,12 +16,18 @@ public class Sequencia : MonoBehaviour
     GameObject r4;
     int[] seq = new int[4];
     int i = 0;
+    public int k = 0;
+    public int clickedButton;
+    public bool endSeq = false;
     public bool ativo = false;
+    public bool guessStart = false;
+    public bool erro = false;
     Altar alt;
 
 
     void Start()
     {
+        clickedButton = -1;
         alt = GameObject.FindGameObjectWithTag("Altar").GetComponent<Altar>();
         sequencia = GameObject.Find("Sequencia");
         r1 = GameObject.Find("r1");
@@ -53,6 +59,8 @@ public class Sequencia : MonoBehaviour
                     i++;
                 }
             }
+            else
+                endSeq = true;
             if (discont > 2)
             {
                 Desabilita();
@@ -60,6 +68,18 @@ public class Sequencia : MonoBehaviour
 
         }
 
+
+        /*if (guessStart && k < 4)
+        {
+            Verifica();
+        }*/
+        if (k >= 4)
+        {
+            print("Mt brabo");
+        }
+        
+
+        //Verifica a array
         if (Input.GetKeyDown(KeyCode.Q))
         {
             for (int j = 0; j < seq.Length; j++)
@@ -76,24 +96,32 @@ public class Sequencia : MonoBehaviour
             case 0:
                 // Desabilita();
                 r1.GetComponent<Renderer>().enabled = true;
+                r1.transform.GetChild(0).gameObject.SetActive(true);
+                r1.transform.GetChild(1).gameObject.SetActive(true);
                 //print("0");
                 seq[i] = 0;
                 return;
             case 1:
                 //Desabilita();
                 r2.GetComponent<Renderer>().enabled = true;
+                r2.transform.GetChild(0).gameObject.SetActive(true);
+                r2.transform.GetChild(1).gameObject.SetActive(true);
                 //print("1");
                 seq[i] = 1;
                 return;
             case 2:
                 // Desabilita();
                 r3.GetComponent<Renderer>().enabled = true;
+                r3.transform.GetChild(0).gameObject.SetActive(true);
+                r3.transform.GetChild(1).gameObject.SetActive(true);
                 //print("2");
                 seq[i] = 2;
                 return;
             case 3:
                 // Desabilita();
                 r4.GetComponent<Renderer>().enabled = true;
+                r4.transform.GetChild(0).gameObject.SetActive(true);
+                r4.transform.GetChild(1).gameObject.SetActive(true);
                 //print("3");
                 seq[i] = 3;
                 return;
@@ -109,5 +137,31 @@ public class Sequencia : MonoBehaviour
         r2.GetComponent<Renderer>().enabled = false;
         r3.GetComponent<Renderer>().enabled = false;
         r4.GetComponent<Renderer>().enabled = false;
+        r1.transform.GetChild(0).gameObject.SetActive(false);
+        r1.transform.GetChild(1).gameObject.SetActive(false);
+        r2.transform.GetChild(0).gameObject.SetActive(false);
+        r2.transform.GetChild(1).gameObject.SetActive(false);
+        r3.transform.GetChild(0).gameObject.SetActive(false);
+        r3.transform.GetChild(1).gameObject.SetActive(false);
+        r4.transform.GetChild(0).gameObject.SetActive(false);
+        r4.transform.GetChild(1).gameObject.SetActive(false);
+
+    }
+    public void Verifica() {
+        print(seq[k]);
+        print(clickedButton);
+        if (seq[k] == clickedButton) {
+           
+            k++;
+            return;
+        }
+        else if(!erro)
+        {
+            erro = true;
+            playerController pc = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
+            pc.PerdeVida();
+            
+            return;
+        }
     }
 }
