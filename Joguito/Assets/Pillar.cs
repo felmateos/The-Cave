@@ -4,22 +4,39 @@ using UnityEngine;
 
 public class Pillar : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public RegenBar regenBar;
+    public float maxRegen = 4;
+    public float currentRegen;
+
+    public GameObject Pillar1;
+    public GameObject Pillar2;
+    public GameObject Pillar3;
+    public GameObject Pillar4;
+    public int PillarCount = 4;
+
     void Start()
     {
-        
+        currentRegen = maxRegen;
+        regenBar.SetMaxRegen(maxRegen);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+       
+    }
+    void TakeDamage(int damage)
+    {
+        currentRegen = regenBar.GetRegen();
+        currentRegen -= damage;
+        regenBar.SetRegen(currentRegen);
+        Destroy(gameObject);
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Impact"))
         {
-            Destroy(gameObject);
+            PillarCount--;
+            TakeDamage(1);  
         }
     }
 }

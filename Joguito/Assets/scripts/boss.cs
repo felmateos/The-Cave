@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class boss : MonoBehaviour
 {
-
 	[SerializeField]
 	public GameObject bullet;
 	public Transform FirePoint;
@@ -18,10 +17,18 @@ public class boss : MonoBehaviour
 	public bool facingRight = true;
 
 	public HealthBar healthBar;
-	public int maxHealth = 100;
-	public int currentHealth;
+	public float maxHealth = 100;
+	public float currentHealth;
 
-	public GameObject Pillar;
+	public RegenBar regenBar;
+	public float maxRegen = 4;
+	public float currentRegen;
+
+	public GameObject Pillar1;
+	public GameObject Pillar2;
+	public GameObject Pillar3;
+	public GameObject Pillar4;
+	public int PillarCount = 4;
 	public int regen = 1;
 
 	bool moveUp = true;
@@ -51,6 +58,9 @@ public class boss : MonoBehaviour
 
 		currentHealth = maxHealth;
 		healthBar.SetMaxHealth(maxHealth);
+
+		currentRegen = maxRegen;
+		regenBar.SetMaxRegen(maxRegen);
 	}
 
 	// Update is called once per frame
@@ -59,21 +69,18 @@ public class boss : MonoBehaviour
 		CheckIfTimeToFire();
 
 		healthBar.SetHealth(currentHealth);
+		currentRegen = regenBar.GetRegen();
 
 		if (currentHealth < 1)
 		{
 			Destroy(gameObject);
 		}
-		if (Pillar == null)
-		{
-			regen = 0;
-		}
+		//if (Pillar1 == null) PillarCount--;
+		//if (Pillar2 == null) PillarCount--;
+		//if (Pillar3 == null) PillarCount--;
+		//if (Pillar4 == null) PillarCount--;
 
 		transform.position = Vector2.MoveTowards(transform.position, targets.position, moveSpeed * Time.deltaTime);
-
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-		}
 
 		/*if (transform.position.y > 1f)
 			moveUp = false;
@@ -145,7 +152,7 @@ public class boss : MonoBehaviour
 	}
 	void regenaration()
 	{
-		currentHealth += regen;
+		if (currentHealth < 100) currentHealth += (regen * currentRegen);
 	}
 	void Shoot()
 	{
