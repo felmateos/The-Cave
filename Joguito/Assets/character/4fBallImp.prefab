@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: -50856403808629638}
   - component: {fileID: -118815485255569225}
   - component: {fileID: -4564646349962874079}
+  - component: {fileID: -2473893186899558263}
+  - component: {fileID: 6916893779455893553}
   m_Layer: 0
   m_Name: 4fBallImp
   m_TagString: Impact
@@ -29,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1979696581043077022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.7892647, y: 2.811331, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children:
   - {fileID: 3514508479775564061}
   m_Father: {fileID: 0}
@@ -73,8 +75,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1068038815
   m_SortingLayer: 2
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 70181fa2d3b75de499b923971941839e, type: 3}
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 21300000, guid: 8bd3a18dc59231f4594be7e73658c2d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -128,12 +130,57 @@ CapsuleCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.25724792, y: -0.05257802}
+  m_Size: {x: 0.73962826, y: 0.73962826}
+  m_Direction: 0
+--- !u!95 &-2473893186899558263
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979696581043077022}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bb8f86d0f9c6b254ebf9fa9a35fef4e3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &6916893779455893553
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979696581043077022}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.055781722}
-  m_Size: {x: 0.75, y: 1.1640604}
-  m_Direction: 0
+  m_Offset: {x: 0.49624407, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.24, y: 0.31}
+    newSize: {x: 0.75, y: 1.35}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.24751186, y: 0.31}
+  m_EdgeRadius: 0
 --- !u!1 &4159485547594371188
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,13 +205,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4159485547594371188}
-  m_LocalRotation: {x: -0, y: -0, z: 0.002025042, w: 0.999998}
-  m_LocalPosition: {x: 0.12, y: -0.14, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.39533263, w: 0.91853803}
+  m_LocalPosition: {x: 0.449, y: 0.005, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 284844351534236045}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -46.573}
 --- !u!114 &857119689612148905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,10 +226,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.7
+  m_FalloffIntensity: 0.78
   m_Color: {r: 1, g: 0.8666878, b: 0, a: 1}
   m_Intensity: 1
-  m_LightVolumeOpacity: 0.42
+  m_LightVolumeOpacity: 0.354
   m_ApplyToSortingLayers: 00000000b54a3ef4610557c0d58ad8a2
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
@@ -193,7 +240,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.18984845
-  m_PointLightOuterRadius: 2.298324
+  m_PointLightOuterRadius: 3
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 48

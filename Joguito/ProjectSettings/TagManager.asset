@@ -18,6 +18,7 @@ TagManager:
   - Kill
   - Dialog
   - Altar
+  - Shield
   layers:
   - Default
   - TransparentFX

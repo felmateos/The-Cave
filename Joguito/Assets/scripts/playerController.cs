@@ -11,6 +11,7 @@ public class playerController : MonoBehaviour
     public bool facingRight = true;
     public bool isGrounded = true;
     public bool inRange = false;
+
     public int coinCount = 0;
     public int lifes = 3;
     public GameObject l1;
@@ -42,7 +43,6 @@ public class playerController : MonoBehaviour
     void Update()
     {
         anim.speed = 0.5f;
-
 
         //Movimentação lateral do personagem
 

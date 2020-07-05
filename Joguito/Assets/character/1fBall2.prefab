@@ -230,6 +230,9 @@ MonoBehaviour:
   rbb: {fileID: 6625040169295197504}
   impactEffect: {fileID: 1979696581043077022, guid: 807af5ab5368be84f9a5213350ce2fcc,
     type: 3}
+  healthBar: {fileID: 0}
+  maxHealth: 100
+  currentHealth: 0
 --- !u!50 &6625040169295197504
 Rigidbody2D:
   serializedVersion: 4
@@ -261,7 +264,7 @@ CircleCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.2601884, y: -0.0014947057}
