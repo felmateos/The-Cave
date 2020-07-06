@@ -160,7 +160,7 @@ public class Sequencia : MonoBehaviour
             erro = true;
             playerController pc = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
             pc.sceneName = "Fase2";
-            pc.PerdeVida();
+            pc.TakeDamage(6);
             return;
         }
     }

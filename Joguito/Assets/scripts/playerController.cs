@@ -15,9 +15,14 @@ public class playerController : MonoBehaviour
 
     public int coinCount = 0;
     public int lifes = 3;
-    public GameObject l1;
-    public GameObject l2;
-    public GameObject l3;
+    // public GameObject l1;
+    // public GameObject l2;
+    // public GameObject l3;
+
+    public HealthBar healthBar;
+    public float maxHealth = 100;
+    public float currentHealth;
+
     public GameObject bullet;
     public GameObject IBUTTON;
     private Animator anim;
@@ -40,10 +45,14 @@ public class playerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         //IBUTTON.GetComponent<Renderer>().enabled = false;
          boxCollider2d = transform.GetComponent<BoxCollider2D>();
+
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     void Update()
     {
+
         anim.speed = 0.5f;
 
         //Movimentação lateral do personagem
@@ -132,9 +141,13 @@ public class playerController : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D collision)
-    {  
-          if (collision.gameObject.CompareTag("Spike"))
+    {
+        if (collision.gameObject.CompareTag("Spike"))
+        {
             transform.position = LastCheckpoint.transform.position;
+            currentHealth = 6;
+            healthBar.SetHealth(currentHealth);
+        }
 
         if (collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("Chest")      //quando bate em algo
             || collision.gameObject.CompareTag("Spike") || collision.gameObject.CompareTag("Plataforma") )
@@ -145,12 +158,6 @@ public class playerController : MonoBehaviour
         {
             coinCount++;
             print("qtd de coins: " + coinCount);
-        }
-       
-
-        if (collision.gameObject.CompareTag("Bullet") || collision.gameObject.CompareTag("Impact"))
-        {
-            PerdeVida();
         }
         if (collision.gameObject.CompareTag("Plataforma"))
            Player.transform.parent = collision.gameObject.transform;
@@ -190,11 +197,16 @@ public class playerController : MonoBehaviour
             gat.certo = true;
         }
 
+        if (collision.gameObject.CompareTag("Bullet") || collision.gameObject.CompareTag("Impact"))
+        {
+            TakeDamage(1);
+        }
 
         //checkpoint
 
         if (collision.gameObject.CompareTag("Checkpoint"))         
         {
+            cameraController cc = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cameraController>();
             Debug.Log("Colidiu com checkpoint: "+ collision.gameObject.name);
             LastCheckpoint = collision.gameObject;
 		}   
@@ -203,20 +215,20 @@ public class playerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Kill"))                
         {
-            transform.position = LastCheckpoint.transform.position;  
+            //transform.position = LastCheckpoint.transform.position;  
 		}
         
         //controle de vidas (no momento está sendo ignorado)
 
         if (collision.gameObject.CompareTag("Impact") || collision.gameObject.CompareTag("Bullet"))
         {
-            lifes--;
+            //lifes--;
             print("-1 de vida, vidas restantes: " + lifes);
             //if (lifes == 0)
             //{
             //    Destroy(gameObject);
             //}
-            switch (lifes)
+            /*switch (lifes)
             {
                 case 2:
                     Destroy(l3);
@@ -231,9 +243,9 @@ public class playerController : MonoBehaviour
                     print("");
                     break;
             }
-            
-        hitCount++;
-        print("Hit " + hitCount);
+            */
+        //hitCount++;
+        //print("Hit " + hitCount);
         }
         if (collision.gameObject.CompareTag("Plataforma") && isGrounded )
         {
@@ -286,7 +298,18 @@ public class playerController : MonoBehaviour
             facingRight = true;
         }
     }
-    public void PerdeVida() {
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
+        if (currentHealth <= 0)
+        {
+            transform.position = LastCheckpoint.transform.position;
+            currentHealth = 6;
+            healthBar.SetHealth(currentHealth);
+        }
+    }
+    /*public void PerdeVida() {
         lifes--;
         
         if (lifes == 0)
@@ -310,6 +333,6 @@ public class playerController : MonoBehaviour
                 print("");
                 break;
         }
-    }
-  
+    }*/
+
 }  
