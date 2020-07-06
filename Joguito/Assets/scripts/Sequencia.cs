@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Sequencia : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class Sequencia : MonoBehaviour
     public bool endSeq = false;
     public bool ativo = false;
     public bool guessStart = false;
+    public bool acertou = false;
     public bool erro = false;
     Altar alt;
 
@@ -69,13 +71,11 @@ public class Sequencia : MonoBehaviour
         }
 
 
-        /*if (guessStart && k < 4)
-        {
-            Verifica();
-        }*/
+        
         if (k >= 4)
         {
-            print("Mt brabo");
+            acertou = true;
+           
         }
         
 
@@ -159,8 +159,8 @@ public class Sequencia : MonoBehaviour
         {
             erro = true;
             playerController pc = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
+            pc.sceneName = "Fase2";
             pc.PerdeVida();
-            
             return;
         }
     }

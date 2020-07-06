@@ -20,6 +20,7 @@ TagManager:
   - Altar
   - Shield
   - Botao
+  - Gate
   layers:
   - Default
   - TransparentFX

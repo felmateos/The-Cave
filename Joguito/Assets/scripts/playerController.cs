@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 //using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerController : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class playerController : MonoBehaviour
     public int hitCount = 0;
     private BoxCollider2D boxCollider2d;
     [SerializeField] public LayerMask groundLayerMask;
+    public string sceneName;
 
 
     void Start()
@@ -182,6 +184,13 @@ public class playerController : MonoBehaviour
 
         }
 
+        if (collision.gameObject.CompareTag("Gate"))
+        {
+            Gate gat = GameObject.FindGameObjectWithTag("Gate").GetComponent<Gate>();
+            gat.certo = true;
+        }
+
+
         //checkpoint
 
         if (collision.gameObject.CompareTag("Checkpoint"))         
@@ -250,6 +259,13 @@ public class playerController : MonoBehaviour
 
         }
 
+        if (collision.gameObject.CompareTag("Gate"))
+        {
+            Gate gat = GameObject.FindGameObjectWithTag("Gate").GetComponent<Gate>();
+            gat.certo = false;
+        }
+
+
         // Player.transform.parent = null;       //conferir se isso nao caga nada
 
     }
@@ -276,6 +292,8 @@ public class playerController : MonoBehaviour
         if (lifes == 0)
         {
             Destroy(gameObject);
+            SceneManager.LoadScene(sceneName);
+
         }
         switch (lifes)
         {
