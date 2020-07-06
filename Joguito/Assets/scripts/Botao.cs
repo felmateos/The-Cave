@@ -6,24 +6,32 @@ public class Botao : MonoBehaviour
 {
     public bool certo = false;
     public GameObject botao;
+    public GameObject botant;
+    Sequencia seq;
+    playerController pc;
 
     // Start is called before the first frame update
     void Start()
     {
+        seq = GameObject.Find("Sequencia").GetComponent<Sequencia>();
+        pc = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerController pc = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
-        Sequencia seq = GameObject.Find("Sequencia").GetComponent<Sequencia>();
         if (Input.GetKeyDown(KeyCode.E) && pc.inRange == true && this.certo && seq.endSeq)
         {
             seq.guessStart = true;
             seq.erro = false;
+
+            Desaparece();
+            botao.transform.GetChild(0).gameObject.SetActive(true);
             Confere(seq);
-            if (seq.k<4)
+            botant = botao;
+
+            if (seq.k<8)
             {
                 seq.Verifica();
             }
@@ -33,9 +41,8 @@ public class Botao : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && seq.endSeq)
         {
-            playerController pc = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
             pc.IBUTTON.GetComponent<Renderer>().enabled = true;
             pc.inRange = true;
         }
@@ -45,7 +52,6 @@ public class Botao : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            playerController pc = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
             pc.IBUTTON.GetComponent<Renderer>().enabled = false;
             pc.inRange = false;
         }
@@ -74,4 +80,13 @@ public class Botao : MonoBehaviour
             print("Complicou");
         }
     }
+    void Desaparece()
+    {
+        GameObject.Find("Botao1").transform.GetChild(0).gameObject.SetActive(false);
+        GameObject.Find("Botao2").transform.GetChild(0).gameObject.SetActive(false);
+        GameObject.Find("Botao3").transform.GetChild(0).gameObject.SetActive(false);
+        GameObject.Find("Botao4").transform.GetChild(0).gameObject.SetActive(false);
+
+    }
+
 }

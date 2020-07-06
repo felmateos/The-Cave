@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 public class Gate : MonoBehaviour
 {
     public bool certo = false;
+    public bool portao = false;
     Sequencia seq;
     playerController pc;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +22,7 @@ public class Gate : MonoBehaviour
     {
        
 
-        if (Input.GetKeyDown(KeyCode.E) && pc.inRange && seq.acertou )
+        if (Input.GetKeyDown(KeyCode.E) && pc.inRange && seq.acertou && portao)
         {
             SceneManager.LoadScene("Fase3");
         }

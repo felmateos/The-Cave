@@ -15,9 +15,9 @@ public class playerController : MonoBehaviour
 
     public int coinCount = 0;
     public int lifes = 3;
-    // public GameObject l1;
-    // public GameObject l2;
-    // public GameObject l3;
+    public GameObject l1;
+    public GameObject l2;
+    public GameObject l3;
 
     public HealthBar healthBar;
     public float maxHealth = 100;
@@ -195,6 +195,7 @@ public class playerController : MonoBehaviour
         {
             Gate gat = GameObject.FindGameObjectWithTag("Gate").GetComponent<Gate>();
             gat.certo = true;
+            gat.portao = true;
         }
 
         if (collision.gameObject.CompareTag("Bullet") || collision.gameObject.CompareTag("Impact"))
@@ -260,6 +261,7 @@ public class playerController : MonoBehaviour
         {
             Altar alt = GameObject.FindGameObjectWithTag("Altar").GetComponent<Altar>();
             alt.certo = false;
+            
 
         }
 
@@ -275,6 +277,7 @@ public class playerController : MonoBehaviour
         {
             Gate gat = GameObject.FindGameObjectWithTag("Gate").GetComponent<Gate>();
             gat.certo = false;
+            gat.portao = false;
         }
 
 
@@ -309,7 +312,7 @@ public class playerController : MonoBehaviour
             healthBar.SetHealth(currentHealth);
         }
     }
-    /*public void PerdeVida() {
+    public void PerdeVida() {
         lifes--;
         
         if (lifes == 0)
@@ -333,6 +336,6 @@ public class playerController : MonoBehaviour
                 print("");
                 break;
         }
-    }*/
+    }
 
 }  

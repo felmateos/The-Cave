@@ -9,18 +9,20 @@ public class Altar : MonoBehaviour
     GameObject altar;
     public bool certo = false;
     public bool ativeseq = true;
+    Sequencia seq;
+    playerController pc;
     void Start()
     {
+        seq = GameObject.Find("Sequencia").GetComponent<Sequencia>();
+        pc = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
         altar = GameObject.Find("Altar");
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerController pc = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
         if (Input.GetKeyDown(KeyCode.E) && pc.inRange == true && this.certo)
         {
-            Sequencia seq = GameObject.Find("Sequencia").GetComponent<Sequencia>();
             if (ativeseq)
             {
                 seq.ativo = true;
@@ -32,10 +34,8 @@ public class Altar : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if(collision.gameObject.CompareTag("Player") && !seq.ativo)
         {
-            
-            playerController pc = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
             pc.IBUTTON.GetComponent<Renderer>().enabled = true;
             pc.inRange = true;
         }
@@ -44,7 +44,6 @@ public class Altar : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            playerController pc = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
             pc.IBUTTON.GetComponent<Renderer>().enabled = false;
             pc.inRange = false;
         }

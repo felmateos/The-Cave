@@ -15,7 +15,7 @@ public class Sequencia : MonoBehaviour
     GameObject r2;
     GameObject r3;
     GameObject r4;
-    int[] seq = new int[4];
+    int[] seq = new int[8];
     int i = 0;
     public int k = 0;
     public int clickedButton;
@@ -25,6 +25,8 @@ public class Sequencia : MonoBehaviour
     public bool acertou = false;
     public bool erro = false;
     Altar alt;
+    public Animator animator;
+
 
 
     void Start()
@@ -47,7 +49,7 @@ public class Sequencia : MonoBehaviour
             discont = Time.time - startTimeEl;
             float cont = Mathf.Floor(currentTime / 3);
 
-            if (i < 4)
+            if (i < 8)
             {
                 if (cont > antcont)
                 {
@@ -72,8 +74,9 @@ public class Sequencia : MonoBehaviour
 
 
         
-        if (k >= 4)
+        if (k >= 8)
         {
+            animator.SetTrigger("open");
             acertou = true;
            
         }
@@ -160,7 +163,7 @@ public class Sequencia : MonoBehaviour
             erro = true;
             playerController pc = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
             pc.sceneName = "Fase2";
-            pc.TakeDamage(6);
+            pc.PerdeVida();
             return;
         }
     }
