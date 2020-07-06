@@ -216,7 +216,7 @@ public class playerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Kill"))                
         {
-            //transform.position = LastCheckpoint.transform.position;  
+            transform.position = LastCheckpoint.transform.position;  
 		}
         
         //controle de vidas (no momento está sendo ignorado)
