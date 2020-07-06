@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class boss : MonoBehaviour
 {
@@ -63,6 +64,11 @@ public class boss : MonoBehaviour
 		regenBar.SetMaxRegen(maxRegen);
 	}
 
+	//public void ChangeS()
+   //{
+   //    SceneManager.LoadScene("Vitoria");
+   //}
+
 	// Update is called once per frame
 	void Update()
 	{
@@ -74,6 +80,7 @@ public class boss : MonoBehaviour
 		if (currentHealth < 1)
 		{
 			Destroy(gameObject);
+			SceneManager.LoadScene("Vitoria");
 		}
 		//if (Pillar1 == null) PillarCount--;
 		//if (Pillar2 == null) PillarCount--;
